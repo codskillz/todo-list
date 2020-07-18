@@ -1,0 +1,34 @@
+<div class = 'wrapper'>
+
+<br><br>
+
+<div>
+  <input type = "text" placeholder="What do you need to do?" [(ngModel)] = "newTodoLabel" id="textbox">
+  <input type = "submit" mat-raised-button (click)="addTodo(newTodoLabel)" value="Enter">
+</div>
+
+<br><br>
+
+<table>
+    <tr>
+      <th>No.</th>
+      <th>To do</th>
+      <th>Done</th>
+      <th>Remove</th>
+    </tr>
+    <tr *ngFor = "let todo of todos" [ngClass] = "{'is-completed' : todo.completed}">
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.title }}</td>
+      <td>
+        <mat-checkbox [(ngModel)] = "todo.completed" name = "completed" (change)="isChecked(todo.completed)"></mat-checkbox>
+      </td>
+      <td>
+        <button mat-raised-button color = "warn" (click) = "deleteTodo(todo)">X</button>
+      </td>
+    </tr>
+</table>
+
+  <div class = 'cnt'>
+    <p>{{ counter }} item(s) left to do</p>
+  </div>
+</div>

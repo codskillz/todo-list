@@ -1,0 +1,55 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.is-completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+input {
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 30px;
+    right: 50%;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  right: 50%;
+  width: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  display: table;
+}
+
+.cnt {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    word-spacing: -0.4px;
+    color: #ADADAD;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+    align-items: justify;
+}
