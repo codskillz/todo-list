@@ -2,9 +2,9 @@
 
 <br><br>
 
-<div>
-  <input type = "text" placeholder="What do you need to do?" [(ngModel)] = "newTodoLabel" id="textbox">
-  <input type = "submit" mat-raised-button (click)="addTodo(newTodoLabel)" value="Enter">
+<div (keydown.enter) = "addTodo(newTodoLabel)">
+  <input type = "text" placeholder="What do you need to do?" [(ngModel)] = "newTodoLabel" id="textbox" value = ''>
+  <input type = "submit" mat-raised-button (click) = "addTodo(newTodoLabel)" value="Enter">
 </div>
 
 <br><br>
@@ -16,19 +16,27 @@
       <th>Done</th>
       <th>Remove</th>
     </tr>
-    <tr *ngFor = "let todo of todos" [ngClass] = "{'is-completed' : todo.completed}">
+    <tr *ngFor = "let todo of todos">
       <td>{{ todo.id }}</td>
-      <td>{{ todo.title }}</td>
       <td>
-        <mat-checkbox [(ngModel)] = "todo.completed" name = "completed" (change)="isChecked(todo.completed)"></mat-checkbox>
+        <span [ngClass] = "{'is-completed' : todo.completed}">{{ todo.title }}</span>
       </td>
       <td>
-        <button mat-raised-button color = "warn" (click) = "deleteTodo(todo)">X</button>
+        <mat-checkbox [(ngModel)] = "todo.completed" name = "completed" (change)="isChecked(todo.completed)" color = "warn"></mat-checkbox>
+      </td>
+      <td>
+        <button mat-raised-button color = "warn" (click) = "removeTodo(todo)">X</button>
       </td>
     </tr>
 </table>
 
   <div class = 'cnt'>
     <p>{{ counter }} item(s) left to do</p>
+  </div>
+
+  <div>
+    <button mat-raised-button color = "warn" (click) = "removeCompleted()">Remove completed</button>
+    <div class = "divider"></div>
+    <button mat-raised-button color = "warn" (click) = "removeAll()">Remove all</button>
   </div>
 </div>
